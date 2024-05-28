@@ -18,7 +18,7 @@
         if ($result) {
             echo 'Updated Successfully';
             // echo 'Data inserted successfully';
-            header('location:display.php');
+            header('location:index.php');
         } else {
             echo 'Data inserted failed';
             die(mysqli_error($con));

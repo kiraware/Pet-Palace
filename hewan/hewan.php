@@ -8,7 +8,7 @@
         $result = mysqli_query($con, $sql);
 
         if ($result) {
-            header('location:display.php');
+            header('location:index.php');
         } else {
             echo 'Data insertion failed';
             die(mysqli_error($con));
