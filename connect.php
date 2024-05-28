@@ -4,9 +4,9 @@
      * HOST = 'localhost'
      * USER = 'root'
      * PASSWORD = ''
-     * DATABASE = 'crudoperation'
+     * DATABASE = 'pet_palace'
      * */
-    $con = new mysqli('localhost', 'root', '', 'crudoperation');
+    $con = new mysqli('localhost', 'root', '', 'pet_palace');
 
     // Checking connection
     if (!$con) {

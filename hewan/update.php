@@ -1,18 +1,18 @@
 <?php
-    require 'connect.php';
+    require '../connect.php';
 
     $id = $_GET['hewanId'];
 
-    $sql = "SELECT id, name FROM `hewan` WHERE id='$id'";
+    $sql = "SELECT id, nama FROM `hewan` WHERE id='$id'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    $name = $row['name'];
+    $nama = $row['nama'];
 
     if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
+        $nama = $_POST['nama'];
 
-        $sql = "UPDATE `hewan` SET id='$id', name='$name' WHERE id='$id'";
+        $sql = "UPDATE `hewan` SET id='$id', nama='$nama' WHERE id='$id'";
         $result = mysqli_query($con, $sql);
 
         if ($result) {
@@ -32,7 +32,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operation</title>
+    <title>Pet Palace - Hewan - Update</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <script src="main.js"></script>
 </head>
@@ -45,8 +45,8 @@
         <fieldset>
         <legend>Edit Data Hewan</legend>
             <p>
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" placeholder="name" value=<?php echo $name;?>>
+                <label for="nama">Nama:</label>
+                <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Hewan" value=<?php echo $nama;?>>
             </p>
         </fieldset>
         <button type="submit" name="submit">Update Data</button>

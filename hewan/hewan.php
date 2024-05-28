@@ -1,10 +1,10 @@
 <?php
-    require 'connect.php';
+    require '../connect.php';
 
     if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
+        $nama = $_POST['nama'];
 
-        $sql = "INSERT INTO `hewan` (name) VALUES('$name')";
+        $sql = "INSERT INTO `hewan` (nama) VALUES('$nama')";
         $result = mysqli_query($con, $sql);
 
         if ($result) {
@@ -23,7 +23,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operation</title>
+    <title>Pet Palace - Hewan - Tambah</title>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -34,8 +34,8 @@
         <legend class="text-3xl font-bold text-white">Tambah Data Hewan Baru</legend>
         <fieldset class="flex flex-col gap-2 w-full">
             <p class="flex flex-col gap-2">
-                <label for="name" class="font-bold text-xl text-white">Name</label>
-                <input type="text" name="name" id="name" placeholder="Masukkan Nama Hewan" required class="text-base font-normal rounded-lg px-4 py-2">
+                <label for="nama" class="font-bold text-xl text-white">Nama</label>
+                <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Hewan" required class="text-base font-normal rounded-lg px-4 py-2">
             </p>
         </fieldset>
         <button type="submit" name="submit" class="bg-teal-500 rounded-lg px-8 py-2 font-semibold text-base text-white w-full sm:w-auto self-end">Submit</button>

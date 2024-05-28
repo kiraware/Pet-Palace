@@ -1,5 +1,5 @@
 <?php
-    require 'connect.php'; // Ensure this file exists and the path is correct
+    require '../connect.php'; // Ensure this file exists and the path is correct
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operation</title>
+    <title>Pet Palace - Hewan</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <script src="main.js"></script>
 </head>
@@ -25,17 +25,17 @@
                 </tr>
                 <tbody>
                 <?php
-                    $sql = "SELECT id, name FROM `hewan`";
+                    $sql = "SELECT id, nama FROM `hewan`";
                     $result = mysqli_query($con, $sql);
 
                     if ($result) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
-                            $name = $row['name'];
+                            $nama = $row['nama'];
 
                             echo '<tr>';
                             echo "<th scope=\"row\">$id</th>";
-                            echo "<td>$name</td>";
+                            echo "<td>$nama</td>";
 
                             echo '<td>
                             <button><a href="update.php?hewanId='.$id.'">Edit</a></button>
