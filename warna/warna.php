@@ -1,18 +1,18 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $nama = $_POST['nama'];
 
     $sql = "INSERT INTO `warna` (id, nama) VALUES('$id', '$nama')";
-    $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($con, $sql);
 
     if ($result) {
-        header('location:display.php');
+        header('location:index.php');
     } else {
         echo 'Data insertion failed';
-        die(mysqli_error($conn));
+        die(mysqli_error($con));
     }
 }
 ?>
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operation</title>
+    <title>Pet Palace - Warna - Tambah</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 

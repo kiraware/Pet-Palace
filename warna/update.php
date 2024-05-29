@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 
 
 $id = $nama = '';
@@ -11,17 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama'];
 
     
-    $stmt = $conn->prepare("UPDATE `warna` SET id=?, nama=? WHERE id=?");
+    $stmt = $con->prepare("UPDATE `warna` SET id=?, nama=? WHERE id=?");
     $stmt->bind_param("isi", $id, $nama, $id);
 
    
     if ($stmt->execute()) {
         
-        header('location:display.php');
+        header('location:index.php');
         exit; 
     } else {
         echo 'Update Failed';
-        die(mysqli_error($conn));
+        die(mysqli_error($con));
     }
 }
 
@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     
-    $stmt = $conn->prepare("SELECT id, nama FROM `warna` WHERE id=?");
+    $stmt = $con->prepare("SELECT id, nama FROM `warna` WHERE id=?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Warna</title>
+    <title>Pet Palace - Warna - Update</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 

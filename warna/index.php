@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ require 'connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operation</title>
+    <title>Pet Palace - Warna</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -21,7 +21,7 @@ require 'connect.php';
 <body class="bg-gray-100">
     <div class="container mx-auto p-4">
         <h2 class="text-2xl font-bold mb-4">Warna</h2>
-        <button class="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"><a href="user.php">Add Warna</a></button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"><a href="warna.php">Add Warna</a></button>
         <table class="min-w-full bg-white border border-gray-200">
             <thead class="bg-gray-200">
                 <tr>
@@ -33,7 +33,7 @@ require 'connect.php';
             <tbody>
                 <?php
                 $sql = "SELECT id, nama FROM `warna`";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($con, $sql);
 
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
