@@ -72,7 +72,7 @@ require '../connect.php'; // Ensure this file exists and the path is correct
 
                             echo '<td>
                             <button><a href="update.php?peliharaanId=' . $id . '">Edit</a></button>
-                            <button><a href="delete.php?peliharaanId=' . $id . '">Delete</a></button>
+                            <button><a href="delete.php?peliharaanId=' . $id . '" onclick="return confirm(\'Apakah kamu yakin ingin menghapus item ini?\');">Delete</a></button>
                             </td>' .
                                 '</tr>';
                         }

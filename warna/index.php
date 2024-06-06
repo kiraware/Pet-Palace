@@ -62,7 +62,7 @@ require '../connect.php';
                         echo "<td class=\"py-2 px-4 border-b\">$nama</td>";
                         echo '<td class="py-2 px-4 border-b">';
                         echo '<button class="bg-yellow-500 text-white px-2 py-1 rounded-md mr-2"><a href="update.php?id=' . $id . '">Update</a></button>';
-                        echo '<button class="bg-red-500 text-white px-2 py-1 rounded-md"><a href="delete.php?id=' . $id . '">Delete</a></button>';
+                        echo '<button class="bg-red-500 text-white px-2 py-1 rounded-md"><a href="delete.php?id=' . $id . '" onclick="return confirm(\'Apakah kamu yakin ingin menghapus item ini?\');">Delete</a></button>';
                         echo '</td>';
                         echo '</tr>';
                     }
