@@ -1,33 +1,33 @@
 <?php
-    require '../connect.php';
+require '../connect.php';
 
-    // Mendapatkan data orang dari database
-    $sql_orang = "SELECT id, nama FROM orang";
-    $result_orang = mysqli_query($con, $sql_orang);
+// Mendapatkan data orang dari database
+$sql_orang = "SELECT id, nama FROM orang";
+$result_orang = mysqli_query($con, $sql_orang);
 
-    // Mendapatkan data hewan dari database
-    $sql_hewan = "SELECT id, nama FROM hewan";
-    $result_hewan = mysqli_query($con, $sql_hewan);
+// Mendapatkan data hewan dari database
+$sql_hewan = "SELECT id, nama FROM hewan";
+$result_hewan = mysqli_query($con, $sql_hewan);
 
-    // Mendapatkan data warna dari database
-    $sql_warna = "SELECT id, nama FROM warna";
-    $result_warna = mysqli_query($con, $sql_warna);
+// Mendapatkan data warna dari database
+$sql_warna = "SELECT id, nama FROM warna";
+$result_warna = mysqli_query($con, $sql_warna);
 
-    if (isset($_POST['submit'])) {
-        $id_orang = $_POST['id_orang'];
-        $id_hewan = $_POST['id_hewan'];
-        $id_warna = $_POST['id_warna'];
+if (isset($_POST['submit'])) {
+    $id_orang = $_POST['id_orang'];
+    $id_hewan = $_POST['id_hewan'];
+    $id_warna = $_POST['id_warna'];
 
-        $sql = "INSERT INTO `peliharaan` (id_orang, id_hewan, id_warna) VALUES('$id_orang','$id_hewan','$id_warna')";
-        $result = mysqli_query($con, $sql);
+    $sql = "INSERT INTO `peliharaan` (id_orang, id_hewan, id_warna) VALUES('$id_orang','$id_hewan','$id_warna')";
+    $result = mysqli_query($con, $sql);
 
-        if ($result) {
-            header('location:index.php');
-        } else {
-            echo 'Data insertion failed';
-            die(mysqli_error($con));
-        }
+    if ($result) {
+        header('location:index.php');
+    } else {
+        echo 'Data insertion failed';
+        die(mysqli_error($con));
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +44,23 @@
 </head>
 
 <body class="flex flex-col items-center bg-gray-300 dark:bg-gray-900 py-16">
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="bg-gray-800 p-4">
+            <div class="mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
+                <!-- Navigation Links -->
+                <div class="flex space-x-4">
+                    <a href="../orang/index.php" class="text-white">Orang</a>
+                    <a href="../hewan/index.php" class="text-white">Hewan</a>
+                    <a href="../warna/index.php" class="text-white">Warna</a>
+                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <form method="post" class="flex flex-col items-center px-8 py-6 shadow-lg rounded-lg gap-6 bg-gray-400 dark:bg-gray-700">
         <legend class="text-3xl font-bold text-white">Tambah Data Peliharaan Baru</legend>
         <fieldset class="flex flex-col gap-2 w-full">

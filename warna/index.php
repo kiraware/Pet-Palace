@@ -19,6 +19,23 @@ require '../connect.php';
 </head>
 
 <body class="bg-gray-100">
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="bg-gray-800 p-4">
+            <div class="mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
+                <!-- Navigation Links -->
+                <div class="flex space-x-4">
+                    <a href="../orang/index.php" class="text-white">Orang</a>
+                    <a href="../hewan/index.php" class="text-white">Hewan</a>
+                    <a href="../warna/index.php" class="text-white">Warna</a>
+                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <div class="container mx-auto p-4">
         <h2 class="text-2xl font-bold mb-4">Warna</h2>
         <button class="bg-blue-500 text-white px-4 py-2 rounded-md mb-4"><a href="warna.php">Add Warna</a></button>
@@ -44,8 +61,8 @@ require '../connect.php';
                         echo "<td class=\"py-2 px-4 border-b\">$id</td>";
                         echo "<td class=\"py-2 px-4 border-b\">$nama</td>";
                         echo '<td class="py-2 px-4 border-b">';
-                        echo '<button class="bg-yellow-500 text-white px-2 py-1 rounded-md mr-2"><a href="update.php?id='.$id.'">Update</a></button>';
-                        echo '<button class="bg-red-500 text-white px-2 py-1 rounded-md"><a href="delete.php?id='.$id.'">Delete</a></button>';
+                        echo '<button class="bg-yellow-500 text-white px-2 py-1 rounded-md mr-2"><a href="update.php?id=' . $id . '">Update</a></button>';
+                        echo '<button class="bg-red-500 text-white px-2 py-1 rounded-md"><a href="delete.php?id=' . $id . '">Delete</a></button>';
                         echo '</td>';
                         echo '</tr>';
                     }
