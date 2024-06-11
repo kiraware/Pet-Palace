@@ -17,10 +17,11 @@
             <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
             <!-- Navigation Links -->
             <nav class="hidden md:flex space-x-4">
-                <a href="orang/index.php" class="text-white hover:text-gray-300">Orang</a>
-                <a href="hewan/index.php" class="text-white hover:text-gray-300">Hewan</a>
-                <a href="warna/index.php" class="text-white hover:text-gray-300">Warna</a>
-                <a href="peliharaan/index.php" class="text-white hover:text-gray-300">Peliharaan</a>
+                <a href="../home/index.php" class="text-white">Home</a>
+                <a href="../orang/index.php" class="text-white">Orang</a>
+                <a href="../hewan/index.php" class="text-white">Hewan</a>
+                <a href="../warna/index.php" class="text-white">Warna</a>
+                <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
             </nav>
             <!-- Mobile Navigation Button -->
             <button class="md:hidden focus:outline-none">
@@ -31,22 +32,13 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation Menu -->
-    <div class="md:hidden bg-gray-800">
-        <div class="container py-4">
-            <a href="orang/index.php" class="block text-white py-2">Orang</a>
-            <a href="hewan/index.php" class="block text-white py-2">Hewan</a>
-            <a href="warna/index.php" class="block text-white py-2">Warna</a>
-            <a href="peliharaan/index.php" class="block text-white py-2">Peliharaan</a>
-        </div>
-    </div>
-
     <!-- Content Area -->
     <main class="container mx-auto py-8 flex flex-col items-center">
         <h1 class="text-5xl font-bold mb-4 text-gray-800 text-center">Welcome to Pet Palace</h1>
-        <p class="text-xl text-gray-700 text-center">Your one-stop destination for all things related to pets.</p>
-
-        <img src="img/pet.png" alt='pet picture' width="640" height="640">
+        <p class="text-xl text-gray-700 text-center mb-8">Your one-stop destination for all things related to pets.</p>
+        <div class="flex justify-center">
+            <img src="../img/pet.png" alt="pet picture" class="max-w-full h-auto md:max-w-3xl">
+        </div>
     </main>
 
 </body>

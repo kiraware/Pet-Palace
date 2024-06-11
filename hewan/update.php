@@ -3,24 +3,24 @@ require '../connect.php';
 
 $id = $_GET['hewanId'];
 
-$sql = "SELECT id, nama FROM `hewan` WHERE id='$id'";
+$sql = "SELECT id, nama, jenis FROM `hewan` WHERE id='$id'";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
 
 $nama = $row['nama'];
+$jenis = $row['jenis'];
 
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
+    $jenis = $_POST['jenis'];
 
-    $sql = "UPDATE `hewan` SET id='$id', nama='$nama' WHERE id='$id'";
+    $sql = "UPDATE `hewan` SET nama='$nama', jenis='$jenis' WHERE id='$id'";
     $result = mysqli_query($con, $sql);
 
     if ($result) {
-        echo 'Updated Successfully';
-        // echo 'Data inserted successfully';
         header('location:index.php');
     } else {
-        echo 'Data inserted failed';
+        echo 'Data update failed';
         die(mysqli_error($con));
     }
 }
@@ -33,42 +33,24 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Palace - Hewan - Update</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <header>
-        <!-- Navigation Bar -->
-        <nav class="bg-gray-800 p-4">
-            <div class="mx-auto flex justify-between items-center">
-                <!-- Logo -->
-                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
-                <!-- Navigation Links -->
-                <div class="flex space-x-4">
-                    <a href="../orang/index.php" class="text-white">Orang</a>
-                    <a href="../hewan/index.php" class="text-white">Hewan</a>
-                    <a href="../warna/index.php" class="text-white">Warna</a>
-                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
-                </div>
+<body class="flex flex-col items-center bg-gray-300 dark:bg-gray-900 py-16">
+    <div class="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">Edit Data Hewan</h2>
+        <form method="post" class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+                <label for="nama" class="font-bold text-lg text-gray-700 dark:text-gray-200">Nama:</label>
+                <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Hewan" value="<?php echo $nama; ?>" required class="text-base font-normal rounded-lg px-4 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
             </div>
-        </nav>
-    </header>
-
-    <div id="test">
-        <h1>Edit Data</h1>
-        <div class="container">
-            <form method="post">
-                <fieldset>
-                    <legend>Edit Data Hewan</legend>
-                    <p>
-                        <label for="nama">Nama:</label>
-                        <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Hewan" value=<?php echo $nama; ?>>
-                    </p>
-                </fieldset>
-                <button type="submit" name="submit">Update Data</button>
-            </form>
+            <div class="flex flex-col gap-2">
+                <label for="jenis" class="font-bold text-lg text-gray-700 dark:text-gray-200">Jenis:</label>
+                <input type="text" name="jenis" id="jenis" placeholder="Masukkan Jenis" value="<?php echo $jenis; ?>" required class="text-base font-normal rounded-lg px-4 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
+            </div>
+            <button type="submit" name="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg px-8 py-2 mt-4">Update Data</button>
+        </form>
+    </div>
 </body>
 
 </html>

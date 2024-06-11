@@ -32,41 +32,24 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body class="flex flex-col items-center bg-gray-300 dark:bg-gray-900 py-16">
-    <header>
-        <!-- Navigation Bar -->
-        <nav class="bg-gray-800 p-4">
-            <div class="mx-auto flex justify-between items-center">
-                <!-- Logo -->
-                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
-                <!-- Navigation Links -->
-                <div class="flex space-x-4">
-                    <a href="../orang/index.php" class="text-white">Orang</a>
-                    <a href="../hewan/index.php" class="text-white">Hewan</a>
-                    <a href="../warna/index.php" class="text-white">Warna</a>
-                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
-                </div>
+    <div class="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">Tambah Data Orang Baru</h2>
+        <form method="post" class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+                <label for="nama" class="font-bold text-lg text-gray-700 dark:text-gray-200">Nama</label>
+                <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Orang" required class="text-base font-normal rounded-lg px-4 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
             </div>
-        </nav>
-    </header>
-
-    <form method="post" class="flex flex-col items-center px-8 py-6 shadow-lg rounded-lg gap-6 bg-gray-400 dark:bg-gray-700">
-        <legend class="text-3xl font-bold text-white">Tambah Data Orang Baru</legend>
-        <fieldset class="flex flex-col gap-2 w-full">
-            <p class="flex flex-col gap-2">
-                <label for="nama" class="font-bold text-xl text-white">Nama</label>
-                <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Orang" required class="text-base font-normal rounded-lg px-4 py-2">
-            </p>
-            <p class="flex flex-col gap-2">
-                <label for="no_telp" class="font-bold text-xl text-white">No Telpon</label>
-                <input type="text" name="no_telp" id="no_telp" placeholder="Masukkan No Telpon" required class="text-base font-normal rounded-lg px-4 py-2">
-            </p>
-            <p class="flex flex-col gap-2">
-                <label for="alamat" class="font-bold text-xl text-white">Alamat</label>
-                <input type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat" required class="text-base font-normal rounded-lg px-4 py-2">
-            </p>
-        </fieldset>
-        <button type="submit" name="submit" class="bg-teal-500 rounded-lg px-8 py-2 font-semibold text-base text-white w-full sm:w-auto self-end">Submit</button>
-    </form>
+            <div class="flex flex-col gap-2">
+                <label for="no_telp" class="font-bold text-lg text-gray-700 dark:text-gray-200">No Telpon</label>
+                <input type="text" name="no_telp" id="no_telp" placeholder="Masukkan No Telpon" required class="text-base font-normal rounded-lg px-4 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="alamat" class="font-bold text-lg text-gray-700 dark:text-gray-200">Alamat</label>
+                <input type="text" name="alamat" id="alamat" placeholder="Masukkan Alamat" required class="text-base font-normal rounded-lg px-4 py-2 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
+            </div>
+            <button type="submit" name="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg px-8 py-2 mt-4">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -4,8 +4,9 @@ require '../connect.php';
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $nama = $_POST['nama'];
+    $tanggal = $_POST['tanggal'];
 
-    $sql = "INSERT INTO `warna` (id, nama) VALUES('$id', '$nama')";
+    $sql = "INSERT INTO `warna` (id, nama, tanggal) VALUES('$id', '$nama', '$tanggal')";
     $result = mysqli_query($con, $sql);
 
     if ($result) {
@@ -28,22 +29,6 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body class="flex flex-col items-center bg-gray-100 py-8">
-    <header>
-        <!-- Navigation Bar -->
-        <nav class="bg-gray-800 p-4">
-            <div class="mx-auto flex justify-between items-center">
-                <!-- Logo -->
-                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
-                <!-- Navigation Links -->
-                <div class="flex space-x-4">
-                    <a href="../orang/index.php" class="text-white">Orang</a>
-                    <a href="../hewan/index.php" class="text-white">Hewan</a>
-                    <a href="../warna/index.php" class="text-white">Warna</a>
-                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
-                </div>
-            </div>
-        </nav>
-    </header>
 
     <div class="container mx-auto p-4">
         <h2 class="text-2xl font-bold mb-4">Tambah Warna</h2>
@@ -51,6 +36,10 @@ if (isset($_POST['submit'])) {
             <div class="mb-4">
                 <label for="nama" class="block text-gray-700 text-sm font-bold mb-2">Nama:</label>
                 <input type="text" name="nama" id="nama" placeholder="Nama Warna" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="tanggal" class="block text-gray-700 text-sm font-bold mb-2">Tanggal:</label>
+                <input type="text" name="tanggal" id="tanggal" placeholder="Masukkan Tanggal" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <button type="submit" name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
         </form>

@@ -14,37 +14,39 @@ require '../connect.php'; // Ensure this file exists and the path is correct
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-100">
     <header>
         <!-- Navigation Bar -->
         <nav class="bg-gray-800 p-4">
-            <div class="mx-auto flex justify-between items-center">
+            <div class="container mx-auto flex justify-between items-center">
                 <!-- Logo -->
-                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
+                <a href="/" class="text-white text-2xl font-bold">Pet Palace</a>
                 <!-- Navigation Links -->
                 <div class="flex space-x-4">
-                    <a href="../orang/index.php" class="text-white">Orang</a>
-                    <a href="../hewan/index.php" class="text-white">Hewan</a>
-                    <a href="../warna/index.php" class="text-white">Warna</a>
-                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
+                    <a href="../home/index.php" class="text-white hover:text-gray-400">Home</a>
+                    <a href="../orang/index.php" class="text-white hover:text-gray-400">Orang</a>
+                    <a href="../hewan/index.php" class="text-white hover:text-gray-400">Hewan</a>
+                    <a href="../warna/index.php" class="text-white hover:text-gray-400">Warna</a>
+                    <a href="../peliharaan/index.php" class="text-white hover:text-gray-400">Peliharaan</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div id="test">
-        <h1>Tabel Data Orang</h1>
-        <a href="orang.php">Tambah Data</a>
-        <br />
-        <div class="table">
-            <table>
-                <tr style="background-color: rgb(220, 57, 57);">
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>No Telpon</th>
-                    <th>Alamat</th>
-                    <th>Operations</th>
-                </tr>
+    <div class="container mx-auto my-8 p-4 bg-white shadow-lg rounded-lg">
+        <h1 class="text-3xl font-bold mb-4">Tabel Data Orang</h1>
+        <a href="orang.php" class="inline-block mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Tambah Data</a>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr class="bg-red-500 text-white">
+                        <th class="w-1/12 py-2">ID</th>
+                        <th class="w-3/12 py-2">Nama</th>
+                        <th class="w-3/12 py-2">No Telpon</th>
+                        <th class="w-3/12 py-2">Alamat</th>
+                        <th class="w-2/12 py-2">Operations</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <?php
                     $sql = "SELECT id, nama, no_telp, alamat FROM `orang`";
@@ -57,17 +59,16 @@ require '../connect.php'; // Ensure this file exists and the path is correct
                             $no_telp = $row['no_telp'];
                             $alamat = $row['alamat'];
 
-                            echo '<tr>';
-                            echo "<th scope=\"row\">$id</th>";
-                            echo "<td>$nama</td>";
-                            echo "<td>$no_telp</td>";
-                            echo "<td>$alamat</td>";
-
-                            echo '<td>
-                            <button><a href="update.php?orangId=' . $id . '">Edit</a></button>
-                            <button><a href="delete.php?orangId=' . $id . '" onclick="return confirm(\'Apakah kamu yakin ingin menghapus item ini?\');">Delete</a></button>
-                            </td>' .
-                                '</tr>';
+                            echo '<tr class="bg-gray-100 border-b border-gray-200">';
+                            echo "<td class='py-2 px-4 text-center'>$id</td>";
+                            echo "<td class='py-2 px-4'>$nama</td>";
+                            echo "<td class='py-2 px-4'>$no_telp</td>";
+                            echo "<td class='py-2 px-4'>$alamat</td>";
+                            echo '<td class="py-2 px-4 text-center">
+                            <a href="update.php?orangId=' . $id . '" class="text-blue-500 hover:text-blue-700 mx-2">Edit</a>
+                            <a href="delete.php?orangId=' . $id . '" onclick="return confirm(\'Apakah kamu yakin ingin menghapus item ini?\');" class="text-red-500 hover:text-red-700 mx-2">Delete</a>
+                            </td>';
+                            echo '</tr>';
                         }
                     }
                     ?>

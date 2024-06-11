@@ -2,17 +2,17 @@
 require '../connect.php';
 
 
-$id = $nama = '';
+$id = $nama = $tanggal = '';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id = $_POST['id'];
     $nama = $_POST['nama'];
+    $tanggal = $_POST['tanggal'];
 
-
-    $stmt = $con->prepare("UPDATE `warna` SET id=?, nama=? WHERE id=?");
-    $stmt->bind_param("isi", $id, $nama, $id);
+    $stmt = $con->prepare("UPDATE `warna` SET id=?, nama=?, tanggal=? WHERE id=?");
+    $stmt->bind_param("isi", $id, $nama, $tanggal, $id);
 
 
     if ($stmt->execute()) {
@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
 
-    $stmt = $con->prepare("SELECT id, nama FROM `warna` WHERE id=?");
+    $stmt = $con->prepare("SELECT id, nama, tanggal FROM `warna` WHERE id=?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -39,6 +39,7 @@ if (isset($_GET['id'])) {
         $row = $result->fetch_assoc();
         $id = $row['id'];
         $nama = $row['nama'];
+        $tanggal = $row['tanggal'];
     } else {
         echo "ID tidak ditemukan.";
         exit;
@@ -60,23 +61,6 @@ if (isset($_GET['id'])) {
 </head>
 
 <body class="bg-gray-100">
-    <header>
-        <!-- Navigation Bar -->
-        <nav class="bg-gray-800 p-4">
-            <div class="mx-auto flex justify-between items-center">
-                <!-- Logo -->
-                <a href="/" class="text-white text-xl font-bold">Pet Palace</a>
-                <!-- Navigation Links -->
-                <div class="flex space-x-4">
-                    <a href="../orang/index.php" class="text-white">Orang</a>
-                    <a href="../hewan/index.php" class="text-white">Hewan</a>
-                    <a href="../warna/index.php" class="text-white">Warna</a>
-                    <a href="../peliharaan/index.php" class="text-white">Peliharaan</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
     <div class="container mx-auto p-4">
         <h2 class="text-2xl font-bold mb-4">Update Warna</h2>
         <form method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -91,6 +75,12 @@ if (isset($_GET['id'])) {
                     Nama
                 </label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nama" name="nama" type="text" placeholder="Nama" value="<?php echo $nama; ?>">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="tanggal">
+                    Tanggal
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tanggal" name="tanggal" type="text" placeholder="tanggal" value="<?php echo $tanggal; ?>">
             </div>
             <div class="flex items-center justify-between">
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="submit">
